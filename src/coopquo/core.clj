@@ -1,8 +1,8 @@
 (ns coopquo.core
   #_(:require [clojure.contrib.math :as math]))
 
-(defn similar-subset
-  "Find the similar subset of keys given two maps"
+(defn shared-keys
+  "Find the similar keys given two maps"
   [id-1 id-2]
   (clojure.set/intersection (set (keys id-1)) (set (keys id-2)))) ; faster than filter
 
@@ -29,7 +29,7 @@
 (defn pearson
   "Pearson Correltion between two users/IDs, given a preference map"
   [prefs id-1 id-2]
-  (let [shared-items (similar-subset (prefs id-1) (prefs id-2))]
+  (let [shared-items (shared-keys (prefs id-1) (prefs id-2))]
     (if-let [n-shared (if (empty? shared-items) false (count shared-items))]
       (let [sum1 (similar-sum prefs id-1 shared-items)
             sum2 (similar-sum prefs id-2 shared-items)

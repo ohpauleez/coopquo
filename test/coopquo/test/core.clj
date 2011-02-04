@@ -33,40 +33,42 @@
 ;(deftest replace-me ;; FIXME: write
 ;  (is false "No tests have been written."))
 
-(describe "Similar subset"
+(describe "shared-keys (shared-keys map-1 map-2)"
   (testing "when there are no common keys"
     (it "should return an empty set"
       (let [m1 (test-set-nums 2)
             m2 (test-set-nums 4)
             expected #{}
-            experimental (ccore/similar-subset m1 m2)]
+            experimental (ccore/shared-keys m1 m2)]
         (= expected experimental))))
   (testing "when the maps share keys"
     (it "should return a set of those keys"
       (let [m1 (test-set-nums 2)
             m2 (test-set-nums 3)
             expected #{"4" "5"}
-            experimental (ccore/similar-subset m1 m2)]
+            experimental (ccore/shared-keys m1 m2)]
         (= expected experimental))))
   (testing "when the supplied args are similar (identical)"
     (it "should return all of the keys"
       (let [m1 (test-set-nums 2)
             m2 {"2" 4.0 "4" 5.0 "5" 5.0}
             expected #{"2" "4" "5"}
-            experimental (ccore/similar-subset m1 m2)]
-        (= expected experimental))))
+            experimental (ccore/shared-keys m1 m2)]
+        (and (= expected experimental)
+             (= (set (keys m1)) experimental)))))
   (testing "when the supplied args are empty"
     (it "should return an empty set"
       (let [m1 {}
             m2 {}
             expected #{}
-            experimental (ccore/similar-subset m1 m2)]
+            experimental (ccore/shared-keys m1 m2)]
         (= expected experimental))))
   (testing "when the one or both of the supplied args are nil"
-    (it "should throw an exception"
+    (it "should return an empty set"
       (let [m1 nil
             m2 {}
             expected #{}
-            experimental (ccore/similar-subset m1 m2)]
-        (= expected experimental)))))
+            experimental (ccore/shared-keys m1 m2)]
+        (and (= expected experimental)
+             (= expected (ccore/shared-keys nil nil)))))))
 
