@@ -67,6 +67,10 @@ I also make use of the paredit.vim file from the slimv.vim plugin.
     * \O split paren - (a b) -> (a)(b)
     * \S splice paren - ((a b)) -> (a b)
 
+### Running the tests
+
+From the project root, `./script/lazytest` will run all the tests.
+To start a test watcher, `./script/lazytest-watch`
 
 
 License

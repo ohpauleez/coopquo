@@ -6,13 +6,13 @@
             :distribution :repo
             :comments "See the notice in README.md or details in LICENSE.html"}
   :dependencies [;[org.clojure/clojure "1.3.0-master-SNAPSHOT"]
-                 ;[org.clojure/clojure "1.3.0-alpha5"]
                  [org.clojure/clojure "1.2.0"]
                  [clj-json "0.3.1"]]
   :dev-dependencies [[vimclojure/server "2.3.0-SNAPSHOT"]
-                     ;[org.clojure.contrib/repl-utils "1.3.0-alpha5"]
-                     ;[org.clojure.contrib/repl-utils "1.3.0-SNAPSHOT"]
                      [org.clojure/clojure-contrib "1.2.0"]
+                     [org.clojure/clojure "1.3.0-alpha4"]
+                     [org.clojure.contrib/repl-utils "1.3.0-alpha4"]
+                     ;[org.clojure.contrib/repl-utils "1.3.0-SNAPSHOT"]
                      [lein-cdt "1.0.0"]
                      [com.stuartsierra/lazytest "2.0.0-SNAPSHOT"]]
   :repositories {"stuartsierra-releases" "http://stuartsierra.com/maven2"
