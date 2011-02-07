@@ -25,6 +25,19 @@ TODO
 TODO
 
 
+TODO
+====
+
+* Consider using Trammel for contract based design
+    This could work like checked operations, so that users could also use the faster, unchecked forms of the call
+* Consider rolling in lein-multi for 1.2/1.3 work
+* Consider using Records for the preference map for speed
+* Consider using stream processing for the preference map and reading/updating directly into mongo
+    This would allow the service/library to be completely async wihout any extra work.  This also allows the library to scale out as a service naturally
+* Roll in SlopeOne recommendations
+* Finish up user and item based collaborative filering
+* Consider rolling in mahout wrappers and interoperability
+
 
 Hacking
 =======
