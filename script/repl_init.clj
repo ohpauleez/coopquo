@@ -1,6 +1,10 @@
 (ns user
+  (:require [vimclojure.nails :as vimnails])
   (:use [clojure.contrib.repl-utils :only (show)]))
 ;(clojure.contrib/repl-utils/add-break-thread!)
+
+(defn runnail []
+  (vimnails/start-server-thread))
 
 (defn unmap-all-ns []
   (doseq  [[f _]  (ns-publics *ns*)]  (ns-unmap *ns* f)))

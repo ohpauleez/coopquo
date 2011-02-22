@@ -34,6 +34,7 @@ TODO
 * Consider using Records for the preference map for speed
 * Consider using stream processing for the preference map and reading/updating directly into mongo
     This would allow the service/library to be completely async wihout any extra work.  This also allows the library to scale out as a service naturally
+* Additionally, make things (such as recommendations/predictions) lazy where it makes sense (which should be most places)
 * Roll in SlopeOne recommendations
 * Finish up user and item based collaborative filering
 * Consider rolling in mahout wrappers and interoperability
@@ -45,11 +46,11 @@ Hacking
 ### Using TMUX or screen
 
 If you want to start a new tmux server, cd to the project root dir, just type:
-    script/starttmux # TODO
+    tmux -f tmux-screen/coopquo.tmux.conf
 otherwise you can start a new session:
-    tmux `cat TODO.tmux.newsession`
+    tmux `cat tmux-screen/coopquo.tmux.newsession`
 You can also use screen:
-    screen -c TODO.screenrc -S coopquo
+    screen -c tmux-screen/coopquo-screenrc -S coopquo
 
 
 ### VimClojure tips
@@ -57,6 +58,10 @@ You can also use screen:
 Start a nailgun (which will also open a repl),
 run the following command from the project root:
     script/nailgun
+You can also run a rlwrap'd REPL that VimClojure can connect to:
+    lein repl
+And then call the Nailgun server function:
+    (runnail)
 
 Here are helpful commands
     * \rt - run tests in the given namespace
