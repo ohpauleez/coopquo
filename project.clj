@@ -13,12 +13,15 @@
                      [org.clojure/clojure "1.3.0-alpha4"]
                      [org.clojure.contrib/repl-utils "1.3.0-alpha4"]
                      ;[org.clojure.contrib/repl-utils "1.3.0-SNAPSHOT"]
-                     [lein-cdt "1.0.0"]
+                     [lein-cdt "1.0.0"] ; use lein cdt to attach
+                     [marginalia "0.5.0"]
                      ;[lein-multi "1.0.0"]
+                     ;[org.clojars.mjul/lein-cuke "1.1.0"]
                      [com.stuartsierra/lazytest "2.0.0-SNAPSHOT"]]
   :repositories {"stuartsierra-releases" "http://stuartsierra.com/maven2"
                  "stuartsierra-snapshots" "http://stuartsierra.com/m2snapshots"}
   :hooks  [leiningen.hooks.cdt]
+  ;:cdt-debug-port 8022
   ;:warn-on-reflection true
   ;:jvm-opts ["-Xmx1g"]
   :repl-init-script "script/repl_init.clj")

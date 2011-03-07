@@ -78,12 +78,17 @@ Here are helpful commands
 
 ### Paredit.vim tips
 
-I also make use of the paredit.vim file from the slimv.vim plugin.
+I also make use of the paredit.vim file from the slimv.vim plugin. This assumes your <leader> is \
     * :call ToggleParedit - toggle it on and off.
     * \W wrap in paren (works with visual selection too)
     * \J join paren - (a)(b) -> (a b)
     * \O split paren - (a b) -> (a)(b)
     * \S splice paren - ((a b)) -> (a b)
+Wrapping can also be tailored, and used on a visual block:
+    * \w"
+    * \w[
+    * \w(
+
 
 ### Running the tests
 
