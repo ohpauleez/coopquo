@@ -1,7 +1,7 @@
 (ns coopquo.test.core
   (:require [coopquo.core :as ccore] :reload)
-  (:use [lazytest.deftest :only (deftest is)]
-        [lazytest.describe :only  (describe it testing)]))
+  (:use [lazytest.deftest :only (deftest is are)]
+        [lazytest.describe :only  (describe it testing given)]))
 
 ;; This test set is based on the 'critics' set used in Programming Collective Intelligence (page 8)
 (def test-set {"Johhny"   {"The Life Aquatic" 5.0 "Amelie" 4.5 "Wall-E" 4.0
