@@ -29,17 +29,17 @@
 (defn pearson
   "Pearson Correltion between two users/IDs, given a preference map"
   [prefs id-1 id-2]
-  (let [shared-items (shared-keys (prefs id-1) (prefs id-2))]
-    (if-let [n-shared (if (empty? shared-items) false (count shared-items))]
-      (let [sum1 (similar-sum prefs id-1 shared-items)
-            sum2 (similar-sum prefs id-2 shared-items)
-            sum1sq (similar-sum-square prefs id-1 shared-items)
-            sum2sq (similar-sum-square prefs id-2 shared-items)
-            psum (similiar-sum-product prefs id-1 id-2 shared-items)]
-        (try
-          (/ (- psum (/ (* sum1 sum2) n-shared))
-             (* (- sum1sq (/ (Math/pow sum1 2) n-shared))
-                (- sum2sq (/ (Math/pow sum2 2) n-shared))))
-          (catch Exception e 0)))
-      0)))
+  (if-let [shared-items (not-empty (shared-keys (prefs id-1) (prefs id-2)))]
+    (let [n-shared (count shared-items)
+          sum1 (similar-sum prefs id-1 shared-items)
+          sum2 (similar-sum prefs id-2 shared-items)
+          sum1sq (similar-sum-square prefs id-1 shared-items)
+          sum2sq (similar-sum-square prefs id-2 shared-items)
+          psum (similiar-sum-product prefs id-1 id-2 shared-items)]
+      (try
+        (/ (- psum (/ (* sum1 sum2) n-shared))
+           (* (- sum1sq (/ (Math/pow sum1 2) n-shared))
+              (- sum2sq (/ (Math/pow sum2 2) n-shared))))
+        (catch Exception e 0)))
+    0))
 
