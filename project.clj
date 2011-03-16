@@ -10,11 +10,12 @@
                  [clj-json "0.3.1"]]
   :dev-dependencies [[vimclojure/server "2.3.0-SNAPSHOT"]
                      [org.clojure/clojure-contrib "1.2.0"]
-                     [org.clojure/clojure "1.3.0-alpha4"]
+                     [org.clojure/clojure "1.3.0-alpha6"]
                      [org.clojure.contrib/repl-utils "1.3.0-alpha4"]
                      ;[org.clojure.contrib/repl-utils "1.3.0-SNAPSHOT"]
                      [lein-cdt "1.0.0"] ; use lein cdt to attach
                      [marginalia "0.5.0"]
+                     [autodoc "0.7.1"]
                      ;[lein-multi "1.0.0"]
                      ;[org.clojars.mjul/lein-cuke "1.1.0"]
                      [com.stuartsierra/lazytest "2.0.0-SNAPSHOT"]]
